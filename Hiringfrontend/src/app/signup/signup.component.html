@@ -1,0 +1,67 @@
+<mat-card-content>
+  <form class="my-form" [formGroup]="signupForm" (ngSubmit)="signUp()">
+    <h2>Sign Up To Become A Family</h2>
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>First Name</mat-label>
+      <input
+        matInput
+        placeholder="First name"
+        formControlName="fname"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Last Name</mat-label>
+      <input
+        matInput
+        placeholder="Last Name"
+        formControlName="lname"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Address</mat-label>
+      <input
+        matInput
+        placeholder="Address"
+        formControlName="address"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Email" formControlName="email" />
+    </mat-form-field>
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        placeholder="Password"
+        formControlName="password"
+        [type]="hide ? 'password' : 'text'"
+      />
+      <mat-icon matSuffix (click)="hide = !hide">{{
+        hide ? "visibility_off" : "visibility"
+      }}</mat-icon>
+    </mat-form-field>
+    <p>
+      <mat-radio-group formControlName="role">
+        <mat-label style="margin-right: 10px">Role:</mat-label>
+        <mat-radio-button style="margin-right: 10px" value="admin"
+          >Admin</mat-radio-button
+        >
+        <mat-radio-button value="customer">Customer</mat-radio-button>
+      </mat-radio-group>
+    </p>
+    <mat-card-actions>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="signupForm.invalid"
+      >
+        SIGN UP
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card-content>
