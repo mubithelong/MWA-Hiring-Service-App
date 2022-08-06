@@ -11,6 +11,8 @@ import { HeaderComponent } from './header/header.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { FooterComponent } from './footer/footer.component';
     HomeComponent,
     HeaderComponent,
     FooterComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,6 +29,7 @@ import { FooterComponent } from './footer/footer.component';
       { path: '', pathMatch: 'full', redirectTo: 'home' },
       { path: 'home', component: HomeComponent },
       { path: 'signup', component: SignupComponent },
+      { path: 'login', component: LoginComponent },
     ]),
     BrowserAnimationsModule,
     AngularMaterialModule,
