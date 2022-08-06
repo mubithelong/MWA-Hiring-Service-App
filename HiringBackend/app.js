@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const morgan = require("morgan");
 // const checkToken = require("./middlewares/checkToken");
 const employeeRouter = require("./routers/employeeRouter");
-// const employerRouter = require("./routers/employerRouter");
+const employerRouter = require("./routers/userRouter");
 
 const app = express();
 mongoose.connect(
@@ -17,7 +17,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/employee", employeeRouter);
-// app.use("/employer", employerRouter);
+app.use("/user", userRouter);
 
 app.use((req, res, next) => {
   next(new Error("Route Not Found"));
