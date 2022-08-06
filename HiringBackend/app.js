@@ -28,7 +28,7 @@ app.use(express.json());
 app.use("/users", require("./routers/authRouter"));
 
 app.use("/employee", employeeRouter);
-app.use("/user", userRouter);
+// app.use("/user", userRouter);
 
 app.use((req, res, next) => {
   next(new Error("Route Not Found"));
