@@ -4,13 +4,20 @@ import { AngularMaterialModule } from './angular-material/angular-material.modul
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ConfigInterceptor } from './Interceptor/config.interceptor';
 
 import { AppComponent } from './app.component';
-import { SignupComponent } from './signup/signup.component';
+
+import { HeaderComponent } from './components/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+
+import { SignupComponent } from './signup/signup.component';
+
 import { HomeComponent } from './home/home.component';
-import { HeaderComponent } from './header/header.component';
+
 import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
@@ -33,7 +40,17 @@ import { FooterComponent } from './footer/footer.component';
     ReactiveFormsModule,
     HttpClientModule,
   ],
+
   providers: [HttpClientModule],
+
+  // providers: [
+  //   // {
+  //   //   provide: HTTP_INTERCEPTORS,
+  //   //   useClass: ConfigInterceptor,
+  //   //   multi: true,
+  //   // },
+  // ],
+
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -12,7 +12,7 @@ const app = express();
 
 // const checkToken = require("./middlewares/checkToken");
 const employeeRouter = require("./routers/employeeRouter");
-// const employerRouter = require("./routers/employerRouter");
+const employerRouter = require("./routers/userRouter");
 
 mongoose.connect(
   "mongodb+srv://mubarek:123Saproject@cluster0.5h8b0tu.mongodb.net/?retryWrites=true&w=majority",
@@ -28,7 +28,7 @@ app.use(express.json());
 app.use("/users", require("./routers/authRouter"));
 
 app.use("/employee", employeeRouter);
-// app.use("/employer", employerRouter);
+app.use("/user", userRouter);
 
 app.use((req, res, next) => {
   next(new Error("Route Not Found"));
