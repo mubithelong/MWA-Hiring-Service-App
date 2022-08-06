@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ConfigInterceptor } from './Interceptor/config.interceptor';
 
 import { AppComponent } from './app.component';
 import { SignupComponent } from './signup/signup.component';
@@ -29,14 +31,9 @@ import { FooterComponent } from './footer/footer.component';
     BrowserAnimationsModule,
     AngularMaterialModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
-  providers: [
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: ConfigInterceptor,
-    //   multi: true,
-    // },
-  ],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
