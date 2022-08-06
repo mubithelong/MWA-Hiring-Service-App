@@ -1,0 +1,36 @@
+<p>
+  <mat-toolbar color="primary" style="height: 100px; background-color: #84549b">
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with home icon"
+    >
+      <mat-icon>home</mat-icon>
+    </button>
+    <span style="margin-right: 10px" *ngIf="!loggedIn()">Book Your Stay</span
+    ><span *ngIf="loggedIn()">{{ " Welcome, " + name }}</span>
+    <span class="example-spacer"></span>
+
+    <div *ngIf="!loggedIn()">
+      <button mat-raised-button style="margin-right: 10px" (click)="signUp()">
+        Sign Up
+      </button>
+      <button mat-raised-button (click)="login()">Login</button>
+    </div>
+
+    <div *ngIf="loggedIn()">
+      <span *ngIf="role === 'admin'">
+        <button
+          mat-raised-button
+          style="margin-right: 10px"
+          (click)="addNewHouse()"
+        >
+          Add New House
+        </button>
+      </span>
+      <button mat-raised-button style="margin-right: 10px" (click)="logout()">
+        Log Out
+      </button>
+    </div>
+  </mat-toolbar>
+</p>
