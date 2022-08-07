@@ -10,7 +10,13 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
+
+import { CardsComponent } from './cards/cards.component';
+import { WorkerDashComponent } from './worker-dash/worker-dash.component';
+import { GridListComponent } from './grid-list/grid-list.component';
+
 import { FooterComponent } from './footer/footer.component';
+
 
 @NgModule({
   declarations: [
@@ -18,14 +24,20 @@ import { FooterComponent } from './footer/footer.component';
     SignupComponent,
     HomeComponent,
     HeaderComponent,
-    FooterComponent,
+    CardsComponent,
+    WorkerDashComponent,
+    GridListComponent,
+    // FooterComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
+   
+      { path: 'employee', component: WorkerDashComponent },
       { path: '', pathMatch: 'full', redirectTo: 'home' },
       { path: 'home', component: HomeComponent },
       { path: 'signup', component: SignupComponent },
+
     ]),
     BrowserAnimationsModule,
     AngularMaterialModule,
