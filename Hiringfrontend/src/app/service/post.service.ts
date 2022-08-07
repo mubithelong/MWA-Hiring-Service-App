@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class PostService {
   constructor(private http: HttpClient) {}
 
-  login(userData: any) {
-    return this.http.post('http://localhost:3100/users/login', userData);
+  getPost() {
+    return this.http.get('http://localhost:3100/employee/profile');
   }
 }

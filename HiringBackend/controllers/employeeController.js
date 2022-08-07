@@ -12,10 +12,32 @@ async function addWorkProfile(req, res, next) {
   }
 }
 
+async function getProfile(req, res, next) {
+  try {
+    //console.log(req.body);
+    const filter = {};
+    const results = await Employee.find(filter);
+    console.log(results);
+    res.json(results);
+  } catch (error) {
+    next(error);
+  }
+}
+
 // get profile(read)
 async function getWorkProfile(req, res, next) {
   try {
     const results = await Employee.find({ _id: req.params.profile_id });
+    res.json(results);
+  } catch (error) {
+    next(error);
+  }
+}
+
+// get all profile
+async function getAllProfile(req, res, next) {
+  try {
+    const results = await Employee.find({});
     res.json(results);
   } catch (error) {
     next(error);
@@ -54,4 +76,9 @@ module.exports = {
   deleteWorkProfile,
   updateWorkProfile,
   addWorkProfile,
+<<<<<<< HEAD
+  getProfile,
+=======
+  getAllProfile,
+>>>>>>> e124ac35008076af731f8df9479eb6d15bfb35b9
 };
