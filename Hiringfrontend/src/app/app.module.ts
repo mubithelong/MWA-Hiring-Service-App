@@ -9,8 +9,11 @@ import { SignupComponent } from './signup/signup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
+// import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CardsComponent } from './cards/cards.component';
+import { WorkerDashComponent } from './worker-dash/worker-dash.component';
+import { GridListComponent } from './grid-list/grid-list.component';
 
 @NgModule({
   declarations: [
@@ -18,14 +21,19 @@ import { HttpClientModule } from '@angular/common/http';
     SignupComponent,
     HomeComponent,
     HeaderComponent,
-    FooterComponent,
+    CardsComponent,
+    WorkerDashComponent,
+    GridListComponent,
+    // FooterComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
-      { path: '', pathMatch: 'full', redirectTo: 'home' },
-      { path: 'home', component: HeaderComponent },
-      { path: 'signup', component: SignupComponent },
+      // { path: '', pathMatch: 'full', redirectTo: 'home' },
+      { path: 'employee', component: WorkerDashComponent },
+
+      // { path: 'home', component: HomeComponent },
+      // { path: 'signup', component: SignupComponent },
     ]),
     BrowserAnimationsModule,
     AngularMaterialModule,
