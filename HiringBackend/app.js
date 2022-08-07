@@ -27,7 +27,7 @@ app.use(express.json());
 // app.use("/todos", checkToken, require("./routers/todoRouter"));
 app.use("/users", require("./routers/authRouter"));
 
-app.use("/employee", employeeRouter);
+app.use("/employee", checkToken, employeeRouter);
 // app.use("/user", userRouter);
 
 app.use((req, res, next) => {
