@@ -34,6 +34,16 @@ async function getWorkProfile(req, res, next) {
   }
 }
 
+// get all profile
+async function getAllProfile(req, res, next) {
+  try {
+    const results = await Employee.find({});
+    res.json(results);
+  } catch (error) {
+    next(error);
+  }
+}
+
 // delete profile
 
 async function deleteWorkProfile(req, res, next) {
@@ -66,5 +76,9 @@ module.exports = {
   deleteWorkProfile,
   updateWorkProfile,
   addWorkProfile,
+<<<<<<< HEAD
   getProfile,
+=======
+  getAllProfile,
+>>>>>>> e124ac35008076af731f8df9479eb6d15bfb35b9
 };
