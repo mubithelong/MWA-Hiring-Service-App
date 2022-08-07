@@ -10,11 +10,11 @@ export class UserserviceService {
   constructor(private http: HttpClient) {}
 
   signupUser(userData: any) {
-    return this.http.post('http://localhost:3000/auth/users/signup', userData);
+    return this.http.post('http://localhost:3100/users/signup', userData);
   }
 
   login(userData: any) {
-    return this.http.post('http://localhost:3000/auth/users/login', userData);
+    return this.http.post('http://localhost:3100/users/login', userData);
   }
 
   isLoggedIn(): boolean {
