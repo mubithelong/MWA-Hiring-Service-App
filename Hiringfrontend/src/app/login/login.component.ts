@@ -25,10 +25,12 @@ export class LoginComponent {
   }
 
   login() {
-    console.log(this.loginForm.value);
+    // console.log(this.loginForm.value);
     this.userService.login(this.loginForm.value).subscribe(
       (data: any) => {
         if (data.success === true) {
+          this.userService.userState$.next(data);
+          console.log(this.userService.getUserState());
           const fullName = data.userCred.fname + ' ' + data.userCred.lname;
           localStorage.setItem('Token', data.token);
           localStorage.setItem('Name', fullName);
