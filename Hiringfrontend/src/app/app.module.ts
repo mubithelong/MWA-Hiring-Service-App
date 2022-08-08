@@ -48,8 +48,8 @@ import { FooterComponent } from './footer/footer.component';
       // { path: 'signup', component: SignupComponent },
 
       { path: 'employee', component: WorkerDashComponent },
-      { path: '', pathMatch: 'full', redirectTo: 'home' },
-      { path: 'home', component: HomeComponent },
+      // { path: '', pathMatch: 'full', redirectTo: 'home' },
+      // { path: 'home', component: HomeComponent },
       { path: 'signup', component: SignupComponent },
     ]),
     BrowserAnimationsModule,
