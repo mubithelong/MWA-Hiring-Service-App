@@ -17,6 +17,7 @@ import { GridListComponent } from './grid-list/grid-list.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { SendTokenInterceptor } from './send-token.interceptor';
+import { ScanTokenGuard } from './scan-token.guard';
 
 @NgModule({
   declarations: [
@@ -33,11 +34,15 @@ import { SendTokenInterceptor } from './send-token.interceptor';
   imports: [
     BrowserModule,
     RouterModule.forRoot([
-      { path: 'employee', component: WorkerDashComponent },
       { path: '', pathMatch: 'full', redirectTo: 'home' },
-      { path: 'home', component: HomeComponent },
+      { path: 'employee', component: WorkerDashComponent },
+      { path: 'home', component: HomeComponent, canActivate: [ScanTokenGuard] },
       { path: 'signup', component: SignupComponent },
-      { path: 'login', component: LoginComponent },
+      {
+        path: 'login',
+        component: LoginComponent,
+      },
+      { path: '**', redirectTo: 'signup' },
     ]),
     BrowserAnimationsModule,
     AngularMaterialModule,
@@ -50,6 +55,7 @@ import { SendTokenInterceptor } from './send-token.interceptor';
       useClass: SendTokenInterceptor,
       multi: true,
     },
+    ScanTokenGuard,
   ],
   bootstrap: [AppComponent],
 })
