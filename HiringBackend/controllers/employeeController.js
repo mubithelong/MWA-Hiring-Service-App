@@ -15,6 +15,7 @@ async function addWorkProfile(req, res, next) {
 async function getProfile(req, res, next) {
   try {
     //console.log(req.body);
+    console.log(req.user);
     const filter = {};
     const results = await Employee.find(filter);
     console.log(results);
@@ -38,6 +39,7 @@ async function getWorkProfile(req, res, next) {
 async function getAllProfile(req, res, next) {
   try {
     const results = await Employee.find({});
+    console.log(results);
     res.json(results);
   } catch (error) {
     next(error);
@@ -76,9 +78,6 @@ module.exports = {
   deleteWorkProfile,
   updateWorkProfile,
   addWorkProfile,
-<<<<<<< HEAD
   getProfile,
-=======
   getAllProfile,
->>>>>>> e124ac35008076af731f8df9479eb6d15bfb35b9
 };

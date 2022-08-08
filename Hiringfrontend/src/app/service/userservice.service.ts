@@ -28,8 +28,19 @@ export class UserserviceService {
     return decoded || null;
   }
 
+  persistState() {
+    localStorage.setItem('userState', JSON.stringify(this.userState$.value));
+  }
+
+  refreshState() {
+    const userState = localStorage.getItem('userState');
+    if (userState) {
+      this.userState$.next(JSON.parse(userState));
+    }
+  }
+
   isLoggedIn(): boolean {
-    const c = localStorage.getItem('Token');
+    const c = localStorage.getItem('userState');
     if (c) this.loggedIn = true;
     else this.loggedIn = false;
     return this.loggedIn;

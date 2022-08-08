@@ -30,9 +30,10 @@ export class LoginComponent {
       (data: any) => {
         if (data.success === true) {
           this.userService.userState$.next(data);
-          console.log(this.userService.getUserState());
+          // console.log(this.userService.getUserState());
+          this.userService.persistState();
           const fullName = data.userCred.fname + ' ' + data.userCred.lname;
-          localStorage.setItem('Token', data.token);
+          //localStorage.setItem('Token', data.token);
           localStorage.setItem('Name', fullName);
 
           localStorage.setItem('Role', data.userCred.role);

@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { SignupComponent } from './signup/signup.component';
@@ -14,8 +15,9 @@ import { WorkerDashComponent } from './worker-dash/worker-dash.component';
 import { GridListComponent } from './grid-list/grid-list.component';
 
 import { FooterComponent } from './footer/footer.component';
-import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
+import { SendTokenInterceptor } from './send-token.interceptor';
+import { ScanTokenGuard } from './scan-token.guard';
 
 @NgModule({
   declarations: [
@@ -32,18 +34,29 @@ import { LoginComponent } from './login/login.component';
   imports: [
     BrowserModule,
     RouterModule.forRoot([
-      { path: 'employee', component: WorkerDashComponent },
       { path: '', pathMatch: 'full', redirectTo: 'home' },
-      { path: 'home', component: HomeComponent },
+      { path: 'employee', component: WorkerDashComponent },
+      { path: 'home', component: HomeComponent, canActivate: [ScanTokenGuard] },
       { path: 'signup', component: SignupComponent },
-      { path: 'login', component: LoginComponent },
+      {
+        path: 'login',
+        component: LoginComponent,
+      },
+      { path: '**', redirectTo: 'signup' },
     ]),
     BrowserAnimationsModule,
     AngularMaterialModule,
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: SendTokenInterceptor,
+      multi: true,
+    },
+    ScanTokenGuard,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
