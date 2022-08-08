@@ -4,13 +4,12 @@ import { AngularMaterialModule } from './angular-material/angular-material.modul
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
 import { SignupComponent } from './signup/signup.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
-
+import { HeaderComponent } from './header/header.component';
 import { CardsComponent } from './cards/cards.component';
 import { WorkerDashComponent } from './worker-dash/worker-dash.component';
 import { GridListComponent } from './grid-list/grid-list.component';
@@ -19,6 +18,10 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { EditWorkProfileComponent } from './edit-work-profile/edit-work-profile.component';
 
 import { FooterComponent } from './footer/footer.component';
+import { LoginComponent } from './login/login.component';
+import { SendTokenInterceptor } from './send-token.interceptor';
+import { ScanTokenGuard } from './scan-token.guard';
+
 
 @NgModule({
   declarations: [
@@ -29,14 +32,17 @@ import { FooterComponent } from './footer/footer.component';
     CardsComponent,
     WorkerDashComponent,
     GridListComponent,
+
     EmployeeDashComponent,
     HomepageComponent,
     EditWorkProfileComponent,
+    LoginComponent,
     // FooterComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
+
       // { path: 'employees', component: EmployeeDashComponent },
       // { path: 'employees', component: WorkerDashComponent },
 
@@ -45,29 +51,31 @@ import { FooterComponent } from './footer/footer.component';
       { path: 'editprofile', component: EditWorkProfileComponent },
 
       { path: '', component: HomepageComponent },
-      // { path: 'signup', component: SignupComponent },
 
+     // { path: '', pathMatch: 'full', redirectTo: 'home' },
       { path: 'employee', component: WorkerDashComponent },
-      // { path: '', pathMatch: 'full', redirectTo: 'home' },
-      // { path: 'home', component: HomeComponent },
+      { path: 'home', component: HomeComponent, canActivate: [ScanTokenGuard] },
       { path: 'signup', component: SignupComponent },
+      {
+        path: 'login',
+        component: LoginComponent,
+      },
+      { path: '**', redirectTo: 'signup' },
+
     ]),
     BrowserAnimationsModule,
     AngularMaterialModule,
     ReactiveFormsModule,
     HttpClientModule,
   ],
-
-  // providers: [HttpClientModule],
-
   providers: [
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: ConfigInterceptor,
-    //   multi: true,
-    // },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: SendTokenInterceptor,
+      multi: true,
+    },
+    ScanTokenGuard,
   ],
-
   bootstrap: [AppComponent],
 })
 export class AppModule {}

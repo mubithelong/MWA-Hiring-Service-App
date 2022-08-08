@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { BehaviorSubject } from 'rxjs';
+import { User } from '../Interface/User';
+import jwt_decode from 'jwt-decode';
 @Injectable({
   providedIn: 'root',
 })
 export class UserserviceService {
   loggedIn: boolean = false;
+
+  userState$ = new BehaviorSubject<{ token: string }>({ token: '' });
 
   constructor(private http: HttpClient) {}
 
@@ -17,8 +21,26 @@ export class UserserviceService {
     return this.http.post('http://localhost:3100/users/login', userData);
   }
 
+  getUserState(): User | null {
+    const decoded =
+      this.userState$.value.token &&
+      (jwt_decode(this.userState$.value.token) as User);
+    return decoded || null;
+  }
+
+  persistState() {
+    localStorage.setItem('userState', JSON.stringify(this.userState$.value));
+  }
+
+  refreshState() {
+    const userState = localStorage.getItem('userState');
+    if (userState) {
+      this.userState$.next(JSON.parse(userState));
+    }
+  }
+
   isLoggedIn(): boolean {
-    const c = localStorage.getItem('Token');
+    const c = localStorage.getItem('userState');
     if (c) this.loggedIn = true;
     else this.loggedIn = false;
     return this.loggedIn;

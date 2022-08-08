@@ -5,16 +5,7 @@
   "projects": {
     "Hiringfrontend": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "skipTests": true,
-          "inlineTemplate": true,
-          "inlineStyle": true,
-          "flat": true,
-          "changeDetection": "Default",
-          "viewEncapsulation": "None"
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -29,6 +20,7 @@
             "tsConfig": "tsconfig.app.json",
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -93,6 +85,7 @@
             "karmaConfig": "karma.conf.js",
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []

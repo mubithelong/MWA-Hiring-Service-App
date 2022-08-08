@@ -26,17 +26,20 @@ app.use(morgan("dev"));
 app.use(cors());
 app.use(express.json());
 
-app.use("/users", require("./routers/authRouter"));
+//app.use("/users", require("./routers/authRouter"));
+
 
 // job record
 app.use("/employees/jobRecord/specific", jobRecordRouter);
 // app.use("/employees/jobRecord", (req, res) => {
 //   res.json("working");
 // });
-app.use("/employee", employeeRouter);
-// app.use("/user", userRouter);
 
-// app.use("/employer", employerRouter);
+
+app.use("/employee", checkToken, employeeRouter);
+
+
+
 app.use("", employeeRouter);
 app.use((req, res, next) => {
   next(new Error("Route Not Found"));
