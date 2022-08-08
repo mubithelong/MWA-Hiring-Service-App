@@ -23,9 +23,12 @@ async function getWorkProfile(req, res, next) {
 }
 
 // get all profile
-async function getAllProfile(req, res, next) {
+async function getAllProfiles(req, res, next) {
   try {
+    console.log("all workers");
+
     const results = await Employee.find({});
+    console.log(results);
     res.json(results);
   } catch (error) {
     next(error);
@@ -64,5 +67,5 @@ module.exports = {
   deleteWorkProfile,
   updateWorkProfile,
   addWorkProfile,
-  getAllProfile,
+  getAllProfiles,
 };

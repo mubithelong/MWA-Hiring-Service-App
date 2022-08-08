@@ -1,0 +1,52 @@
+<div class="example-container">
+  <mat-form-field hintLabel="Max 10 characters" appearance="fill">
+    <mat-label>first name</mat-label>
+    <input matInput #input maxlength="10" value="mubarek" />
+    <mat-hint>{{ input.value?.length || 0 }}/10</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field hintLabel="Max 10 characters" appearance="fill">
+    <mat-label>last name</mat-label>
+    <input matInput #input maxlength="10" value="ali" />
+    <mat-hint>{{ input.value?.length || 0 }}/10</mat-hint>
+  </mat-form-field>
+
+  <br />
+  <mat-form-field hintLabel="Max 10 characters" appearance="fill">
+    <mat-label>last name</mat-label>
+    <input matInput #input maxlength="10" value="Electrician" />
+    <mat-hint>{{ input.value?.length || 0 }}/10</mat-hint>
+  </mat-form-field>
+  <br />
+  <mat-form-field hintLabel="Max 10 characters" appearance="fill">
+    <mat-label>address</mat-label>
+    <input matInput #input maxlength="10" value="1000 N 4th st" />
+    <mat-hint>{{ input.value?.length || 0 }}/10</mat-hint>
+  </mat-form-field>
+  <mat-form-field hintLabel="Max 10 characters" appearance="fill">
+    <mat-label>city</mat-label>
+    <input matInput #input maxlength="10" value="Fairfield" />
+    <mat-hint>{{ input.value?.length || 0 }}/10</mat-hint>
+  </mat-form-field>
+  <mat-form-field hintLabel="Max 10 characters" appearance="fill">
+    <mat-label>zip</mat-label>
+    <input matInput #input maxlength="10" value="52557" />
+    <mat-hint>{{ input.value?.length || 0 }}/10</mat-hint>
+  </mat-form-field>
+  <br />
+
+  <mat-form-field appearance="fill" floatLabel="always">
+    <mat-label>Hourly Rate</mat-label>
+    <input matInput type="number" class="example-right-align" value="25" />
+    <span matPrefix>$&nbsp;</span>
+    <span matSuffix>.00</span>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Select me</mat-label>
+    <mat-select>
+      <mat-option value="option">Option</mat-option>
+    </mat-select>
+    <mat-hint>Here's the dropdown arrow ^</mat-hint>
+  </mat-form-field>
+</div>

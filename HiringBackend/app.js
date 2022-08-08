@@ -12,6 +12,7 @@ const app = express();
 
 // const checkToken = require("./middlewares/checkToken");
 const employeeRouter = require("./routers/employeeRouter");
+const jobRecordRouter = require("./routers/jobRecordRouter");
 // const employerRouter = require("./routers/employerRouter");
 
 mongoose.connect(
@@ -24,12 +25,17 @@ app.use(morgan("dev"));
 app.use(cors());
 app.use(express.json());
 
-// app.use("/todos", checkToken, require("./routers/todoRouter"));
 app.use("/users", require("./routers/authRouter"));
 
-app.use("/employee", employeeRouter);
-// app.use("/employer", employerRouter);
+// job record
+app.use("/employees/jobRecord/specific", jobRecordRouter);
+// app.use("/employees/jobRecord", (req, res) => {
+//   res.json("working");
+// });
 
+app.use("/employees", employeeRouter);
+// app.use("/employer", employerRouter);
+app.use("", employeeRouter);
 app.use((req, res, next) => {
   next(new Error("Route Not Found"));
 });

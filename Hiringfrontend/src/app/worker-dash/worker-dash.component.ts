@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { WorkersService } from '../service/workers.service';
+import { JobhistoryService } from '../service/jobhistory.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Job } from '../JobInterface';
 
 @Component({
   selector: 'app-worker-dash',
@@ -7,13 +9,22 @@ import { WorkersService } from '../service/workers.service';
   styleUrls: ['./worker-dash.component.css'],
 })
 export class WorkerDashComponent implements OnInit {
-  workerProfile: Array<Worker> = [];
-  constructor(private workerService: WorkersService) {
-    this.workerService.getWorkProfile().subscribe((response) => {
-      this.workerProfile = response;
-      console.log(this.workerProfile);
+  jobHistory: Array<Job> = [];
+  id: String = '';
+
+  constructor(
+    private router: Router,
+    private jobService: JobhistoryService,
+    private route: ActivatedRoute
+  ) {
+    this.jobService.getJobHistory().subscribe((response) => {
+      this.jobHistory = response;
+      console.log(this.jobHistory);
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit() {}
+  editWorkProfile() {
+    this.router.navigate(['editprofile']);
+  }
 }

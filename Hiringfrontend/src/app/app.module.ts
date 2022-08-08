@@ -14,6 +14,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { CardsComponent } from './cards/cards.component';
 import { WorkerDashComponent } from './worker-dash/worker-dash.component';
 import { GridListComponent } from './grid-list/grid-list.component';
+import { EmployeeDashComponent } from './employee-dash/employee-dash.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { EditWorkProfileComponent } from './edit-work-profile/edit-work-profile.component';
 
 @NgModule({
   declarations: [
@@ -24,15 +27,22 @@ import { GridListComponent } from './grid-list/grid-list.component';
     CardsComponent,
     WorkerDashComponent,
     GridListComponent,
+    EmployeeDashComponent,
+    HomepageComponent,
+    EditWorkProfileComponent,
     // FooterComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
-      // { path: '', pathMatch: 'full', redirectTo: 'home' },
-      { path: 'employee', component: WorkerDashComponent },
+      // { path: 'employees', component: EmployeeDashComponent },
+      // { path: 'employees', component: WorkerDashComponent },
 
-      // { path: 'home', component: HomeComponent },
+      //----------  test path
+      { path: 'employees/specific', component: WorkerDashComponent },
+      { path: 'editprofile', component: EditWorkProfileComponent },
+
+      { path: '', component: HomepageComponent },
       // { path: 'signup', component: SignupComponent },
     ]),
     BrowserAnimationsModule,

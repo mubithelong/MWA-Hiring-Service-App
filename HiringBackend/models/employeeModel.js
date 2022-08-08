@@ -4,9 +4,10 @@ const Schema = new mongoose.Schema({
   employeeProfile: {
     name: String,
     email: String,
-    address: {},
+    address: { street: String, zip: String, city: String, country: String },
   },
+
   hourlyRate: Number,
-  experiance: Number,
+  experience: Number,
 });
 module.exports = mongoose.model("Employee", Schema);
