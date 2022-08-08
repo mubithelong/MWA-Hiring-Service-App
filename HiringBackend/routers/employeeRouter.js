@@ -4,8 +4,11 @@ const {
   deleteWorkProfile,
   updateWorkProfile,
   addWorkProfile,
+
+  getAllProfiles,
   getProfile,
-  getAllProfile,
+
+
 } = require("../controllers/employeeController");
 const router = express.Router();
 
@@ -15,7 +18,7 @@ router.get("/", (req, res) => {
 router.get("/profile", getProfile);
 
 router.get("/:profile_id", getWorkProfile);
-router.get("/", getAllProfile);
+router.get("/", getAllProfiles);
 
 router.delete("/:profile_id", deleteWorkProfile);
 router.patch("/:profile_id", updateWorkProfile);

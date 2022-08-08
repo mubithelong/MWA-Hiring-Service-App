@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Worker } from '../WorkerInterface';
 
 @Injectable({
   providedIn: 'root',
@@ -7,7 +8,7 @@ import { Injectable } from '@angular/core';
 export class WorkersService {
   constructor(private http: HttpClient) {}
 
-  getWorkProfile() {
-    return this.http.get<Array<Worker>>('http://localhost:3000/employee/');
+  getWorkProfile(id: String) {
+    return this.http.get<Array<Worker>>('http://localhost:3000/employees/');
   }
 }
