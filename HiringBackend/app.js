@@ -14,6 +14,7 @@ const app = express();
 const employeeRouter = require("./routers/employeeRouter");
 const jobRecordRouter = require("./routers/jobRecordRouter");
 // const employerRouter = require("./routers/employerRouter");
+const employerRouter = require("./routers/userRouter");
 
 mongoose.connect(
   "mongodb+srv://mubarek:123Saproject@cluster0.5h8b0tu.mongodb.net/?retryWrites=true&w=majority",
@@ -32,8 +33,9 @@ app.use("/employees/jobRecord/specific", jobRecordRouter);
 // app.use("/employees/jobRecord", (req, res) => {
 //   res.json("working");
 // });
+app.use("/employee", employeeRouter);
+// app.use("/user", userRouter);
 
-app.use("/employees", employeeRouter);
 // app.use("/employer", employerRouter);
 app.use("", employeeRouter);
 app.use((req, res, next) => {
@@ -44,4 +46,4 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: err });
 });
 
-app.listen(3000, () => console.log("Listening on port 3000"));
+app.listen(3100, () => console.log("Listening on port 3000"));
