@@ -84,6 +84,4 @@ module.exports = {
   getAllProfiles,
 
   getProfile,
-
-
 };

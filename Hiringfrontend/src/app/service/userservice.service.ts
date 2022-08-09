@@ -14,11 +14,15 @@ export class UserserviceService {
   constructor(private http: HttpClient) {}
 
   signupUser(userData: any) {
-    return this.http.post('http://localhost:3100/users/signup', userData);
+    return this.http.post('http://localhost:3000/users/signup', userData);
+  }
+
+  payMoney(userData: any) {
+    return this.http.post('http://localhost:3000/payment/pay', userData);
   }
 
   login(userData: any) {
-    return this.http.post('http://localhost:3100/users/login', userData);
+    return this.http.post('http://localhost:3000/users/login', userData);
   }
 
   getUserState(): User | null {

@@ -23,6 +23,8 @@ export class SignupComponent {
       email: ['', Validators.compose([Validators.required, Validators.email])],
       password: ['', Validators.compose([Validators.required])],
       address: ['', Validators.compose([Validators.required])],
+      dateOfBirth: ['', Validators.compose([Validators.required])],
+      gender: ['', Validators.compose([Validators.required])],
       role: ['admin'],
     });
   }

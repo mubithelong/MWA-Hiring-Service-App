@@ -39,8 +39,10 @@ export class LoginComponent {
           localStorage.setItem('Role', data.userCred.role);
           if (data.userCred.role === 'admin') {
             this.route.navigate(['home']);
+          } else if (data.userCred.role === 'user') {
+            this.route.navigate(['user']);
           } else {
-            this.route.navigate(['customer']);
+            this.route.navigate(['employee']);
           }
         } else if (data.success === false) {
           alert(data.message);

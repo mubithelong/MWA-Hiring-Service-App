@@ -25,10 +25,12 @@ export class ScanTokenGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    if (this.userService.getUserState()) {
+    if (this.userService.isLoggedIn()) {
       return true;
     } else {
-      return false;
+      this.router.navigate(['login']);
+      //this.router.canceledNavigationResolution = 'computed';
+      return true;
     }
   }
 }

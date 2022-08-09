@@ -21,7 +21,8 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { SendTokenInterceptor } from './send-token.interceptor';
 import { ScanTokenGuard } from './scan-token.guard';
-
+import { PaymentComponent } from './payment/payment.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
 
 @NgModule({
   declarations: [
@@ -37,12 +38,13 @@ import { ScanTokenGuard } from './scan-token.guard';
     HomepageComponent,
     EditWorkProfileComponent,
     LoginComponent,
+    PaymentComponent,
+    ConfirmationComponent,
     // FooterComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
-
       // { path: 'employees', component: EmployeeDashComponent },
       // { path: 'employees', component: WorkerDashComponent },
 
@@ -50,18 +52,35 @@ import { ScanTokenGuard } from './scan-token.guard';
       { path: 'employees/specific', component: WorkerDashComponent },
       { path: 'editprofile', component: EditWorkProfileComponent },
 
-      { path: '', component: HomepageComponent },
+      {
+        path: 'home',
+        component: HomepageComponent,
+        canActivate: [ScanTokenGuard],
+      },
+      {
+        path: 'payment',
+        component: PaymentComponent,
+        canActivate: [ScanTokenGuard],
+      },
 
-     // { path: '', pathMatch: 'full', redirectTo: 'home' },
+      {
+        path: 'confirmation',
+        component: ConfirmationComponent,
+        canActivate: [ScanTokenGuard],
+      },
+
+      // { path: '', pathMatch: 'full', redirectTo: 'home' },
       { path: 'employee', component: WorkerDashComponent },
-      { path: 'home', component: HomeComponent, canActivate: [ScanTokenGuard] },
-      { path: 'signup', component: SignupComponent },
+      { path: 'user', component: HomeComponent, canActivate: [ScanTokenGuard] },
+      {
+        path: 'signup',
+        component: SignupComponent,
+      },
       {
         path: 'login',
         component: LoginComponent,
       },
       { path: '**', redirectTo: 'signup' },
-
     ]),
     BrowserAnimationsModule,
     AngularMaterialModule,

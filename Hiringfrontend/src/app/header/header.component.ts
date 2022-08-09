@@ -43,7 +43,7 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['login']);
   }
 
-  addNewHouse() {
+  addNewJob() {
     this.router.navigate(['add']);
   }
 }

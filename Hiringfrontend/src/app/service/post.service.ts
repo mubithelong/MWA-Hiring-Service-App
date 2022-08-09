@@ -8,6 +8,6 @@ export class PostService {
   constructor(private http: HttpClient) {}
 
   getPost() {
-    return this.http.get('http://localhost:3100/employee/profile');
+    return this.http.get('http://localhost:3000/employee/profile');
   }
 }

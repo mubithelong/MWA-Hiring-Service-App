@@ -1,4 +1,4 @@
-const Employee = require("../models/jobRecordModel");
+const JobRecord = require("../models/jobRecordModel");
 
 // find job history by worker id
 async function getJobHistory(req, res, next) {
@@ -18,9 +18,16 @@ async function getJobHistory(req, res, next) {
 // create a job record
 async function createJobRecord(req, res, next) {
   try {
-    console.log(req.body);
+    console.log("Entering Job Record");
+    console.log(req.user);
+    const query = {
+      x: req.user,
+      f: req.body.paymentmethod,
+      g: req.body.cardnumber,
+    };
 
-    const results = await JobRecord.create(req.body);
+    console.log(query);
+    const results = await JobRecord.create({ query });
 
     res.json(results);
   } catch (error) {

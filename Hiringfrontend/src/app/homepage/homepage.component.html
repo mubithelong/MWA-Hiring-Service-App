@@ -1,11 +1,11 @@
 <mat-grid-list cols="2" rowHeight="2:1">
   <mat-grid-tile *ngFor="let worker of workerProfile">
-    <mat-card>
+    <mat-card (click)="hire()">
       <mat-card-header>
         <mat-card-title>
           Name: {{ worker.employeeProfile.name }}</mat-card-title
         >
-        <mat-card-subtitle>{{ worker.jobName.name }}</mat-card-subtitle>
+        <mat-card-subtitle>{{ worker.jobName }}</mat-card-subtitle>
       </mat-card-header>
 
       <mat-card-content>

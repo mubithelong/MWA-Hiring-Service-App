@@ -17,6 +17,6 @@ router.get("/", getJobHistory);
 // router.get("/", (req, res) => {
 //   res.json("at router layer");
 // });
-router.post("/", createJobRecord);
+router.post("/pay", createJobRecord);
 
 module.exports = router;

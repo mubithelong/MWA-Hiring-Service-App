@@ -7,14 +7,12 @@ const {
 
   getAllProfiles,
   getProfile,
-
-
 } = require("../controllers/employeeController");
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.json("working");
-});
+// router.get("/", (req, res) => {
+//   res.json("working");
+// });
 router.get("/profile", getProfile);
 
 router.get("/:profile_id", getWorkProfile);

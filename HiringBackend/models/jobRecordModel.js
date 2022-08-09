@@ -12,5 +12,7 @@ const Schema = new mongoose.Schema({
   endDate: Date,
   hourlyRate: Number,
   workerId: String,
+  paymentMethod: String,
+  cardNumber: String,
 });
 module.exports = mongoose.model("JobRecord", Schema);
