@@ -7,7 +7,7 @@
     >
       <mat-icon>home</mat-icon>
     </button>
-    <span style="margin-right: 10px" *ngIf="!loggedIn()">Book Your Stay</span
+    <span style="margin-right: 10px" *ngIf="!loggedIn()">Worker's Hub</span
     ><span *ngIf="loggedIn()">{{ " Welcome, " + name }}</span>
     <span class="example-spacer"></span>
 
@@ -19,7 +19,7 @@
     </div>
 
     <div *ngIf="loggedIn()">
-      <span *ngIf="role === 'admin'">
+      <!-- <span *ngIf="role === 'admin'">
         <button
           mat-raised-button
           style="margin-right: 10px"
@@ -27,7 +27,26 @@
         >
           Add New House
         </button>
+      </span> -->
+      <span *ngIf="role === 'customer'">
+        <button
+          mat-raised-button
+          style="margin-right: 10px"
+          (click)="renderCustomerHome()"
+        >
+          customerHome
+        </button>
       </span>
+
+      <!--    register  for worker account  -->
+      <button
+        mat-raised-button
+        style="margin-right: 10px"
+        (click)="createWorkerProfile()"
+      >
+        create worker pro
+      </button>
+
       <button mat-raised-button style="margin-right: 10px" (click)="logout()">
         Log Out
       </button>

@@ -10,7 +10,7 @@ export class JobhistoryService {
 
   getJobHistory() {
     return this.http.get<Array<Job>>(
-      'http://localhost:3000/employees/jobRecord/specific'
+      'http://localhost:3000/job-history/job-record'
     );
   }
 }

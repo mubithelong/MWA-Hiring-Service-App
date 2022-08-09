@@ -26,21 +26,15 @@ app.use(morgan("dev"));
 app.use(cors());
 app.use(express.json());
 
-//app.use("/users", require("./routers/authRouter"));
+app.use("/users", require("./routers/authRouter"));
 
+// ------------  employee routes
 
-// job record
-app.use("/employees/jobRecord/specific", jobRecordRouter);
-// app.use("/employees/jobRecord", (req, res) => {
-//   res.json("working");
-// });
+app.use("/employees", checkToken, employeeRouter);
 
+//-------------- job records routes
+app.use("/job-history", checkToken, jobRecordRouter);
 
-app.use("/employee", checkToken, employeeRouter);
-
-
-
-app.use("", employeeRouter);
 app.use((req, res, next) => {
   next(new Error("Route Not Found"));
 });
@@ -49,4 +43,4 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: err });
 });
 
-app.listen(3100, () => console.log("Listening on port 3000"));
+app.listen(3000, () => console.log("Listening on port 3000"));

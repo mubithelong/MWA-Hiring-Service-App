@@ -11,4 +11,11 @@ export class WorkersService {
   getWorkProfile(id: String) {
     return this.http.get<Array<Worker>>('http://localhost:3000/employees/');
   }
+
+  saveWorkProfile(workerData: any) {
+    return this.http.post(
+      'http://localhost:3000/employees/register',
+      workerData
+    );
+  }
 }

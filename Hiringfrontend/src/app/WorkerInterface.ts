@@ -1,11 +1,13 @@
 export interface Worker {
+  jobTitle: String;
   employeeProfile: {
-    name: String;
-    email: String;
-    address: { street: String; zip: String; city: String; country: String };
+    firstName: String;
+    lastName: String;
+    email: { type: String; unique: true };
+    address: { street: String; zip: String; city: String };
   };
   _id?: String;
-  jobName: { name: String };
+
   hourlyRate: Number;
   experiance: Number;
 }
