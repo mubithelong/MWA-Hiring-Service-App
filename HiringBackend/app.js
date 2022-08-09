@@ -28,6 +28,11 @@ app.use(express.json());
 
 app.use("/users", require("./routers/authRouter"));
 
+
+
+//app.use("/payment", checkToken, jobRecordRouter);
+
+
 // ------------  employee routes
 
 app.use("/employees", checkToken, employeeRouter);

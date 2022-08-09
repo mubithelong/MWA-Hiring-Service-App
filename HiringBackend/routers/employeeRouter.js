@@ -9,6 +9,8 @@ const {
 } = require("../controllers/employeeController");
 const router = express.Router();
 
+//router.get("/profile", getProfile);
+
 // get/ read work profile
 router.get("/", getProfile);
 
@@ -17,6 +19,7 @@ router.get("/get-all", getAllProfiles);
 
 // delete work profile
 router.delete("/", deleteWorkProfile);
+
 
 // edit
 router.patch("/", updateWorkProfile);

@@ -9,7 +9,12 @@ const router = express.Router();
 
 router.get("/job-record", getJobHistory);
 
+
+
+//router.post("/pay", createJobRecord);
+
 // add job record
 router.post("/", createJobRecord);
+
 
 module.exports = router;

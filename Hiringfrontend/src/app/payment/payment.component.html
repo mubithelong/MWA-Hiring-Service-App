@@ -1,0 +1,42 @@
+<mat-card-content>
+  <form class="my-form" [formGroup]="payForm" (ngSubmit)="pay()">
+    <h2>Payment Can be refunded</h2>
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Payment Type</mat-label>
+      <input
+        matInput
+        placeholder="Payment Type"
+        formControlName="paymentmethod"
+        required
+      />
+    </mat-form-field>
+    <br />
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Card Type</mat-label>
+      <input
+        matInput
+        placeholder="Card Number"
+        formControlName="cardnumber"
+        required
+      />
+    </mat-form-field>
+
+    <!-- <p>
+      <mat-radio-group formControlName="gender">
+        <mat-label style="margin-right: 10px">Gender:</mat-label>
+        <mat-radio-button style="margin-right: 10px" value="Male"
+          >Male</mat-radio-button
+        >
+        <mat-radio-button value="Female">Female</mat-radio-button>
+      </mat-radio-group>
+    </p> -->
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Pay</button>
+    </mat-card-actions>
+  </form>
+</mat-card-content>
+
+<div>
+  {{ jobdata }}
+</div>

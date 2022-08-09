@@ -15,6 +15,13 @@ export class UserserviceService {
 
   signupUser(userData: any) {
     return this.http.post('http://localhost:3000/users/signup', userData);
+
+  }
+
+  payMoney(userData: any) {
+    return this.http.post('http://localhost:3000/payment/pay', userData);
+
+
   }
 
   login(userData: any) {
