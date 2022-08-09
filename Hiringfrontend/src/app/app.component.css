@@ -8,9 +8,18 @@ span {
 }
 
  */
+/* body {
+  background-image: url("../assets/images/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* background-color: #cccccc; */
+/* }  */
+
 .flex-wrapper {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
   justify-content: space-between;
+  width: 90%;
 }

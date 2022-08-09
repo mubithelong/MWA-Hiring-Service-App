@@ -21,7 +21,7 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { SendTokenInterceptor } from './send-token.interceptor';
 import { ScanTokenGuard } from './scan-token.guard';
-
+import { CreateWorkerProfileComponent } from './create-worker-profile/create-worker-profile.component';
 
 @NgModule({
   declarations: [
@@ -37,31 +37,30 @@ import { ScanTokenGuard } from './scan-token.guard';
     HomepageComponent,
     EditWorkProfileComponent,
     LoginComponent,
+    CreateWorkerProfileComponent,
     // FooterComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
-
       // { path: 'employees', component: EmployeeDashComponent },
       // { path: 'employees', component: WorkerDashComponent },
 
       //----------  test path
-      { path: 'employees/specific', component: WorkerDashComponent },
+      { path: 'workers/signup', component: CreateWorkerProfileComponent },
       { path: 'editprofile', component: EditWorkProfileComponent },
 
-      { path: '', component: HomepageComponent },
+      { path: 'home', component: HomepageComponent },
 
-     // { path: '', pathMatch: 'full', redirectTo: 'home' },
+      // { path: '', pathMatch: 'full', redirectTo: 'home' },
       { path: 'employee', component: WorkerDashComponent },
-      { path: 'home', component: HomeComponent, canActivate: [ScanTokenGuard] },
+      // { path: 'home', component: HomeComponent, canActivate: [ScanTokenGuard] },
       { path: 'signup', component: SignupComponent },
       {
         path: 'login',
         component: LoginComponent,
       },
       { path: '**', redirectTo: 'signup' },
-
     ]),
     BrowserAnimationsModule,
     AngularMaterialModule,

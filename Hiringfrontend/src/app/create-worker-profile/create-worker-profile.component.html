@@ -1,0 +1,78 @@
+<div class="example-container">
+  <form
+    [formGroup]="workerProfileForm"
+    (ngSubmit)="onSubmit(workerProfileForm.value)"
+  >
+    <mat-form-field hintLabel="Max 10 characters" appearance="fill">
+      <mat-label>first name</mat-label>
+      <input matInput #input maxlength="10" formControlName="firstName" />
+      <!-- <mat-hint>{{ input.value?.length || 0 }}/10</mat-hint> -->
+    </mat-form-field>
+
+    <mat-form-field hintLabel="Max 10 characters" appearance="fill">
+      <mat-label>last name</mat-label>
+      <input matInput #input maxlength="10" formControlName="lastName" />
+      <!-- <mat-hint>{{ input.value?.length || 0 }}/10</mat-hint> -->
+    </mat-form-field>
+    <mat-form-field hintLabel="Max 10 characters" appearance="fill">
+      <mat-label>email</mat-label>
+      <input matInput #input maxlength="10" formControlName="email" />
+      <!-- <mat-hint>{{ input.value?.length || 0 }}/10</mat-hint> -->
+    </mat-form-field>
+    <br />
+    <mat-form-field hintLabel="Max 10 characters" appearance="fill">
+      <mat-label>Job Title</mat-label>
+      <input matInput #input maxlength="10" formControlName="jobTitle" />
+      <!-- <mat-hint>{{ input.value?.length || 0 }}/10</mat-hint> -->
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Job Title</mat-label>
+      <mat-select>
+        <mat-option value="option">Option</mat-option>
+      </mat-select>
+      <mat-hint>Here's the dropdown arrow ^</mat-hint>
+    </mat-form-field>
+    <br />
+    <mat-form-field hintLabel="Max 10 characters" appearance="fill">
+      <mat-label>address</mat-label>
+      <input matInput #input maxlength="10" formControlName="street" />
+      <!-- <mat-hint>{{ input.value?.length || 0 }}/10</mat-hint> -->
+    </mat-form-field>
+    <mat-form-field hintLabel="Max 10 characters" appearance="fill">
+      <mat-label>city</mat-label>
+
+      <input matInput #input maxlength="10" formControlName="city" />
+      <!-- <mat-hint>{{ input.value?.length || 0 }}/10</mat-hint> -->
+    </mat-form-field>
+    <mat-form-field hintLabel="Max 10 characters" appearance="fill">
+      <mat-label>zip</mat-label>
+
+      <input matInput #input maxlength="10" formControlName="zip" />
+      <!-- <mat-hint>{{ input.value?.length || 0 }}/10</mat-hint> -->
+    </mat-form-field>
+    <br />
+
+    <mat-form-field appearance="fill" floatLabel="always">
+      <mat-label>Hourly Rate</mat-label>
+
+      <input
+        matInput
+        type="number"
+        class="example-right-align"
+        formControlName="hourlyRate"
+      />
+      <span matPrefix>$&nbsp;</span>
+      <span matSuffix>.00</span>
+    </mat-form-field>
+    <br />
+
+    <mat-form-field hintLabel="Max 10 characters" appearance="fill">
+      <mat-label>experience</mat-label>
+
+      <input matInput #input maxlength="10" formControlName="experience" />
+      <!-- <mat-hint>{{ input.value?.length || 0 }}/10</mat-hint> -->
+    </mat-form-field>
+    <br />
+    <button>Register</button>
+  </form>
+</div>

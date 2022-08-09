@@ -19,7 +19,7 @@ export class AppComponent {
       console.log('entering');
       this.router.navigate(['/', 'home']);
     } else {
-      this.router.navigate(['/', 'login']);
+      this.router.navigate(['/', 'home']);
     }
   }
 }

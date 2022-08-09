@@ -14,18 +14,16 @@ export class UserserviceService {
   constructor(private http: HttpClient) {}
 
   signupUser(userData: any) {
-    return this.http.post('http://localhost:3100/users/signup', userData);
+    return this.http.post('http://localhost:3000/users/signup', userData);
   }
 
   login(userData: any) {
-    return this.http.post('http://localhost:3100/users/login', userData);
+    return this.http.post('http://localhost:3000/users/login', userData);
   }
 
-  getUserState(): User | null {
-    const decoded =
-      this.userState$.value.token &&
-      (jwt_decode(this.userState$.value.token) as User);
-    return decoded || null;
+  getUserState(): User {
+    const { user }: any = jwt_decode(this.userState$.value.token);
+    return user as User;
   }
 
   persistState() {
