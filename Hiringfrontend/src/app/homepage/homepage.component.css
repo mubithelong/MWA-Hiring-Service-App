@@ -1,0 +1,27 @@
+/* .home_wrapper {
+
+} */
+.home_wrapper {
+  padding-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #e9f3fe;
+}
+
+.home_wrapper > div {
+  /* background-color: #f1f1f1; */
+
+  margin: 10px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  box-shadow: #d7dbdf 0px 1px 4px;
+  width: 350px;
+  /* text-align: center; */
+  /* line-height: 40px; */
+  font-size: 30px;
+}
+
+#hire_button {
+  margin-left: 150px;
+  text-align: center;
+}

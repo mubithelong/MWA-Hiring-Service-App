@@ -38,7 +38,7 @@ import { CreateWorkerProfileComponent } from './create-worker-profile/create-wor
     EditWorkProfileComponent,
     LoginComponent,
     CreateWorkerProfileComponent,
-    // FooterComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

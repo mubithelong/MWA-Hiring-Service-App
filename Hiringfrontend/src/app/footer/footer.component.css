@@ -1,0 +1,20 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+body {
+  background-image: url("../../assets/images/background.jpg");
+  /* background-color: #cccccc; */
+}
+.footer-container {
+  /* width: 90%; */
+  color: black;
+  height: 200px;
+  background-color: #b3c6da;
+  text-align: center;
+}
+
+.footer-container p {
+  text-align: center;
+  justify-content: center;
+}

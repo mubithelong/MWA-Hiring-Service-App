@@ -1,4 +1,46 @@
-<mat-grid-list cols="2" rowHeight="2:1">
+<div class="home_wrapper">
+  <div class="cards" *ngFor="let worker of workerProfile">
+    <div>
+      <mat-card>
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image">
+            <img
+              src="../../assets/images/default_profile_picture.jpeg"
+              mat-card-avatar
+            />
+          </div>
+          <mat-card-title
+            >Name: {{ worker.employeeProfile.firstName }}
+            {{ worker.employeeProfile.lastName }}</mat-card-title
+          >
+          <mat-card-subtitle>{{ worker.jobTitle }}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+          <p>Hourly Rate: {{ worker.hourlyRate }}</p>
+          <p>Description: I have 5 years of working experience</p>
+          <!-- <p>Address: {{ worker.employeeProfile.address.city }}</p> -->
+
+          <div>
+            Rating: <mat-icon id="my_icon">star</mat-icon>
+            <mat-icon id="my_icon">star</mat-icon>
+            <mat-icon id="my_icon">star</mat-icon>
+            <mat-icon id="my_icon">star</mat-icon>
+            <mat-icon id="my_icon">star_half</mat-icon>
+          </div>
+        </mat-card-content>
+        <mat-divider inset></mat-divider>
+        <mat-card-footer>
+          <mat-card-actions>
+            <button id="hire_button" mat-raised-button>Hire</button>
+          </mat-card-actions>
+        </mat-card-footer>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+<!-- <mat-grid-list cols="2" rowHeight="2:1">
   <mat-grid-tile *ngFor="let worker of workerProfile">
     <mat-card>
       <mat-card-header>
@@ -13,12 +55,12 @@
         <img
           src="https://material.angualar.io/assets/img/examples/shiba1.jpg"
           mat-card-avatar
-        />
-        <!-- <p>Address: {{ worker.employeeProfile.address.city }}</p> -->
-        <p>Hourly Rate: {{ worker.hourlyRate }}</p>
-        <!-- <p>Address: {{ worker.employeeProfile.address.city }}</p> -->
+        /> -->
+<!-- <p>Address: {{ worker.employeeProfile.address.city }}</p> -->
+<!-- <p>Hourly Rate: {{ worker.hourlyRate }}</p> -->
+<!-- <p>Address: {{ worker.employeeProfile.address.city }}</p> -->
 
-        <p>Description: I have 5 years of working experience</p>
+<!-- <p>Description: I have 5 years of working experience</p>
         <p>Rating</p>
       </mat-card-content>
 
@@ -29,4 +71,4 @@
       </mat-card-footer>
     </mat-card>
   </mat-grid-tile>
-</mat-grid-list>
+</mat-grid-list> -->

@@ -1,14 +1,26 @@
-<p>
-  <mat-toolbar color="primary" style="height: 100px; background-color: #84549b">
-    <button
-      mat-icon-button
-      class="example-icon"
-      aria-label="Example icon-button with home icon"
-    >
-      <mat-icon>home</mat-icon>
-    </button>
-    <span style="margin-right: 10px" *ngIf="!loggedIn()">Worker's Hub</span
-    ><span *ngIf="loggedIn()">{{ " Welcome, " + name }}</span>
+<div class="header-container">
+  <mat-toolbar color="primary" style="height: 100px; background-color: #b3c6da">
+    <ul id="logo_section">
+      <li>
+        <button
+          mat-icon-button
+          class="example-icon"
+          aria-label="Example icon-button with home icon"
+        >
+          <a href="/">
+            <mat-icon id="my_icon">handshake</mat-icon>
+          </a>
+        </button>
+        <span id="app_name" style="margin-right: 10px">Worker's Hub</span>
+      </li>
+      <li>
+        <div>
+          <span id="welcome_user" *ngIf="loggedIn()">{{
+            " Welcome, " + name
+          }}</span>
+        </div>
+      </li>
+    </ul>
     <span class="example-spacer"></span>
 
     <div *ngIf="!loggedIn()">
@@ -52,4 +64,4 @@
       </button>
     </div>
   </mat-toolbar>
-</p>
+</div>
