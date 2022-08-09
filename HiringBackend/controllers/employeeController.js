@@ -3,22 +3,26 @@ const Employee = require("../models/employeeModel");
 // create a work profile
 async function addWorkProfile(req, res, next) {
   try {
+    console.log("creating worker  profile");
     console.log(req.body);
-    const results = await Employee.create(req.body);
-
-    res.json(results);
+    // const results = await Employee.insert(req.body);
+    let em = new Employee(req.body);
+    let result = await em.save();
+    res.json(result);
   } catch (error) {
+    console.log("error");
     next(error);
   }
 }
 
+// get profile
 async function getProfile(req, res, next) {
   try {
     //console.log(req.body);
     console.log(req.user);
     const filter = {};
     const results = await Employee.find(filter);
-    console.log(results);
+
     res.json(results);
   } catch (error) {
     next(error);
@@ -38,10 +42,7 @@ async function getWorkProfile(req, res, next) {
 // get all profile
 async function getAllProfiles(req, res, next) {
   try {
-    console.log("all workers");
-
     const results = await Employee.find({});
-    console.log(results);
     res.json(results);
   } catch (error) {
     next(error);

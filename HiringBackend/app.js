@@ -28,15 +28,18 @@ app.use(express.json());
 
 app.use("/users", require("./routers/authRouter"));
 
-// job record
-//app.use("/employees/jobRecord/specific", jobRecordRouter);
-// app.use("/employees/jobRecord", (req, res) => {
-//   res.json("working");
-// });
-app.use("/payment", checkToken, jobRecordRouter);
-app.use("/employee", checkToken, employeeRouter);
 
-app.use("/", employeeRouter);
+
+//app.use("/payment", checkToken, jobRecordRouter);
+
+
+// ------------  employee routes
+
+app.use("/employees", checkToken, employeeRouter);
+
+//-------------- job records routes
+app.use("/job-history", checkToken, jobRecordRouter);
+
 app.use((req, res, next) => {
   next(new Error("Route Not Found"));
 });

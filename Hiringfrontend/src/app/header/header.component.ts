@@ -46,4 +46,12 @@ export class HeaderComponent implements OnInit {
   addNewJob() {
     this.router.navigate(['add']);
   }
+
+  //   create worker profile
+  createWorkerProfile() {
+    this.router.navigate(['workers/signup']);
+  }
+  renderCustomerHome() {
+    this.router.navigate(['employee']);
+  }
 }

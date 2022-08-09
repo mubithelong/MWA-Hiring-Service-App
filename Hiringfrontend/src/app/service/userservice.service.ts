@@ -15,21 +15,22 @@ export class UserserviceService {
 
   signupUser(userData: any) {
     return this.http.post('http://localhost:3000/users/signup', userData);
+
   }
 
   payMoney(userData: any) {
     return this.http.post('http://localhost:3000/payment/pay', userData);
+
+
   }
 
   login(userData: any) {
     return this.http.post('http://localhost:3000/users/login', userData);
   }
 
-  getUserState(): User | null {
-    const decoded =
-      this.userState$.value.token &&
-      (jwt_decode(this.userState$.value.token) as User);
-    return decoded || null;
+  getUserState(): User {
+    const { user }: any = jwt_decode(this.userState$.value.token);
+    return user as User;
   }
 
   persistState() {

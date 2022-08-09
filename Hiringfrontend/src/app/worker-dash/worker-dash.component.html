@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
   <button
     mat-raised-button
     style="margin-right: 10px"
@@ -9,36 +9,37 @@
 </div>
 <div class="mat-elevation-z8">
   <table mat-table *ngFor="let job of jobHistory">
-    <!-- Position Column -->
-    <ng-container matColumnDef="position">
+    -->
+<!-- Position Column -->
+<!-- <ng-container matColumnDef="position">
       <th mat-header-cell *matHeaderCellDef>No.</th>
       // display item number here
       <td mat-cell *matCellDef="let element">1</td>
-    </ng-container>
+    </ng-container> -->
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
+<!-- Name Column -->
+<!-- <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Client Name</th>
       <td mat-cell *matCellDef="let element">{{ job.clientInfo.name }}</td>
-    </ng-container>
+    </ng-container> -->
 
-    <!-- Weight Column -->
-    <ng-container matColumnDef="address">
+<!-- Weight Column -->
+<!-- <ng-container matColumnDef="address">
       <th mat-header-cell *matHeaderCellDef>Address</th>
       <td mat-cell *matCellDef="let element">
         {{ job.clientInfo.address.city }}
       </td>
-    </ng-container>
+    </ng-container> -->
 
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="no of days">
+<!-- Symbol Column -->
+<!-- <ng-container matColumnDef="no of days">
       <th mat-header-cell *matHeaderCellDef>No. of days</th>
       <td mat-cell *matCellDef="let element">
         {{ job.endDate.valueOf() - job.startDate.valueOf() }}
       </td>
-    </ng-container>
+    </ng-container> -->
 
-    <ng-container matColumnDef="gross amount">
+<!-- <ng-container matColumnDef="gross amount">
       <th mat-header-cell *matHeaderCellDef>Gross amount</th>
       <td mat-cell *matCellDef="let element">
         {{
@@ -48,8 +49,8 @@
       </td>
     </ng-container>
 
-    <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
 
   <mat-paginator
@@ -58,4 +59,50 @@
     aria-label="Select page of periodic elements"
   >
   </mat-paginator>
+</div> -->
+
+<div>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+      <!-- Position Column -->
+      <!-- <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef>No.</th>
+        <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+      </ng-container> -->
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef>Address</th>
+        <td mat-cell *matCellDef="let element">{{ element.address }}</td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="days">
+        <th mat-header-cell *matHeaderCellDef>Days</th>
+        <td mat-cell *matCellDef="let element">{{ element.days }}</td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef>Amount</th>
+        <td mat-cell *matCellDef="let element">{{ element.amount }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+      aria-label="Select page of periodic elements"
+    >
+    </mat-paginator>
+  </div>
 </div>

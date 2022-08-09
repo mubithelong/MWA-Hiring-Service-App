@@ -5,18 +5,16 @@ const {
 } = require("../controllers/jobRecordController");
 const router = express.Router();
 
-router.get("/", getJobHistory);
-// router.get("/", (req, res) => {
-//   res.json("at router layer ");
-// });
+// get job record
 
-// router.get("/:profile_id", (req, res) => {
-//   res.json("at router layer with id");
-// });
+router.get("/job-record", getJobHistory);
 
-// router.get("/", (req, res) => {
-//   res.json("at router layer");
-// });
-router.post("/pay", createJobRecord);
+
+
+//router.post("/pay", createJobRecord);
+
+// add job record
+router.post("/", createJobRecord);
+
 
 module.exports = router;

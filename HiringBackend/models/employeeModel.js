@@ -1,10 +1,11 @@
 const mongoose = require("mongoose");
 const Schema = new mongoose.Schema({
-  jobName: {},
+  jobTitle: String,
   employeeProfile: {
-    name: String,
-    email: String,
-    address: { street: String, zip: String, city: String, country: String },
+    firstName: String,
+    lastName: String,
+    email: { type: String, unique: true },
+    address: { street: String, zip: String, city: String },
   },
 
   hourlyRate: Number,

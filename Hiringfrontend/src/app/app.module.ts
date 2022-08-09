@@ -21,8 +21,12 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { SendTokenInterceptor } from './send-token.interceptor';
 import { ScanTokenGuard } from './scan-token.guard';
+
 import { PaymentComponent } from './payment/payment.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
+
+import { CreateWorkerProfileComponent } from './create-worker-profile/create-worker-profile.component';
+
 
 @NgModule({
   declarations: [
@@ -38,8 +42,11 @@ import { ConfirmationComponent } from './confirmation/confirmation.component';
     HomepageComponent,
     EditWorkProfileComponent,
     LoginComponent,
+
     PaymentComponent,
     ConfirmationComponent,
+
+    CreateWorkerProfileComponent,
     // FooterComponent,
   ],
   imports: [
@@ -49,8 +56,9 @@ import { ConfirmationComponent } from './confirmation/confirmation.component';
       // { path: 'employees', component: WorkerDashComponent },
 
       //----------  test path
-      { path: 'employees/specific', component: WorkerDashComponent },
+      { path: 'workers/signup', component: CreateWorkerProfileComponent },
       { path: 'editprofile', component: EditWorkProfileComponent },
+
 
       {
         path: 'home',
@@ -76,6 +84,11 @@ import { ConfirmationComponent } from './confirmation/confirmation.component';
         path: 'signup',
         component: SignupComponent,
       },
+
+     
+
+     
+
       {
         path: 'login',
         component: LoginComponent,
