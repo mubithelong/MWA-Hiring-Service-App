@@ -1,6 +1,7 @@
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
+const sec = require("../app");
 
 const Schema = new mongoose.Schema({
   fname: { type: String },
@@ -26,7 +27,7 @@ Schema.methods.compareUserPassword = async (inputPassword, hashedPassword) => {
 };
 
 Schema.methods.genertareJwtToken = async (payload, secret, expires) => {
-  return jwt.sign(payload, secret, expires);
+  return jwt.sign(payload, sec.jwtSecret, expires);
 };
 
 module.exports = mongoose.model("User", Schema);

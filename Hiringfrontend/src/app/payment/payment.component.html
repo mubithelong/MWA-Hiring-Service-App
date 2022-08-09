@@ -21,6 +21,27 @@
       />
     </mat-form-field>
 
+    <br />
+
+    <mat-form-field appearance="outline">
+      <mat-label>Job Starting Date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="startdate" />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="outline">
+      <mat-label>Job Ending Date</mat-label>
+      <input matInput [matDatepicker]="pickerend" formControlName="enddate" />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="pickerend"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #pickerend></mat-datepicker>
+    </mat-form-field>
+
     <!-- <p>
       <mat-radio-group formControlName="gender">
         <mat-label style="margin-right: 10px">Gender:</mat-label>
@@ -30,7 +51,8 @@
         <mat-radio-button value="Female">Female</mat-radio-button>
       </mat-radio-group>
     </p> -->
-
+    <br />
+    <br />
     <mat-card-actions>
       <button mat-raised-button color="primary" type="submit">Pay</button>
     </mat-card-actions>

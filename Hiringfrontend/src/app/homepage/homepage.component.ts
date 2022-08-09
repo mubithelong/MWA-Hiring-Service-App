@@ -15,8 +15,8 @@ export class HomepageComponent implements OnInit {
   workerProfile: Array<Worker> = [];
   cardForm: FormGroup;
 
-  @Output()
-  touch = new EventEmitter<Worker>();
+  // @Output()
+  // touch = new EventEmitter<Worker>();
 
   constructor(
     private workerService: HomepageService,
@@ -36,10 +36,12 @@ export class HomepageComponent implements OnInit {
     });
   }
 
-  hire() {
-    console.log(this.workerProfile);
-    this.touch;
-    this.messageService.sendJobpost(this.workerProfile);
+  hire(worker: any) {
+    this.messageService.jobState$.next(worker);
+    console.log('printing worker data');
+    console.log(worker);
+    console.log('printing worker data done');
+    this.messageService.sendJobpost(worker);
     this.router.navigate(['payment']);
   }
 

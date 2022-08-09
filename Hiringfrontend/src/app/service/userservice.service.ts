@@ -15,22 +15,23 @@ export class UserserviceService {
 
   signupUser(userData: any) {
     return this.http.post('http://localhost:3000/users/signup', userData);
-
   }
 
   payMoney(userData: any) {
-    return this.http.post('http://localhost:3000/payment/pay', userData);
-
-
+    return this.http.post('http://localhost:3000/job-history', userData);
   }
 
   login(userData: any) {
     return this.http.post('http://localhost:3000/users/login', userData);
   }
 
-  getUserState(): User {
-    const { user }: any = jwt_decode(this.userState$.value.token);
-    return user as User;
+  getUserState(): User | null {
+    if (this.userState$.value.token) {
+      const { user }: any = jwt_decode(this.userState$.value.token);
+      return user as User;
+    } else {
+      return null;
+    }
   }
 
   persistState() {

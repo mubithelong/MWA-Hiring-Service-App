@@ -40,7 +40,7 @@ export class LoginComponent {
           if (data.userCred.role === 'admin') {
             this.route.navigate(['home']);
           } else if (data.userCred.role === 'user') {
-            this.route.navigate(['user']);
+            this.route.navigate(['home']);
           } else {
             this.route.navigate(['employee']);
           }
