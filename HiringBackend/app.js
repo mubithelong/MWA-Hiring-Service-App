@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
+require("dotenv").config();
 
 const checkToken = require("./middlewares/verify");
 
@@ -16,8 +17,14 @@ const jobRecordRouter = require("./routers/jobRecordRouter");
 // const employerRouter = require("./routers/employerRouter");
 const employerRouter = require("./routers/userRouter");
 
+const url = process.env.MONGO_URL;
+
+module.exports = {
+  jwtSecret: process.env.JWT_SECRET,
+};
+
 mongoose.connect(
-  "mongodb+srv://mubarek:123Saproject@cluster0.5h8b0tu.mongodb.net/?retryWrites=true&w=majority",
+  url,
 
   { useNewUrlParser: true }
 );
@@ -27,6 +34,8 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/users", require("./routers/authRouter"));
+
+//app.use("/payment", checkToken, jobRecordRouter);
 
 // ------------  employee routes
 

@@ -1,5 +1,6 @@
+
 <div class="home_wrapper">
-  <div class="cards" *ngFor="let worker of workerProfile">
+  <div class="cards" *ngFor="let worker of workerProfile" (click)="hire(worker)">
     <div>
       <mat-card>
         <mat-card-header>
@@ -40,35 +41,7 @@
   </div>
 </div>
 
-<!-- <mat-grid-list cols="2" rowHeight="2:1">
-  <mat-grid-tile *ngFor="let worker of workerProfile">
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>
-          Name: {{ worker.employeeProfile.firstName }}
-          {{ worker.employeeProfile.lastName }}</mat-card-title
-        >
-        <mat-card-subtitle>{{ worker.jobTitle }}</mat-card-subtitle>
-      </mat-card-header>
 
-      <mat-card-content>
-        <img
-          src="https://material.angualar.io/assets/img/examples/shiba1.jpg"
-          mat-card-avatar
-        /> -->
-<!-- <p>Address: {{ worker.employeeProfile.address.city }}</p> -->
-<!-- <p>Hourly Rate: {{ worker.hourlyRate }}</p> -->
-<!-- <p>Address: {{ worker.employeeProfile.address.city }}</p> -->
+  <!-- <mat-grid-tile *ngFor="let worker of workerProfile" (click)="hire(worker)"> -->
 
-<!-- <p>Description: I have 5 years of working experience</p>
-        <p>Rating</p>
-      </mat-card-content>
-
-      <mat-card-footer>
-        <mat-card-actions>
-          <button mat-raised-button>Hire</button>
-        </mat-card-actions>
-      </mat-card-footer>
-    </mat-card>
-  </mat-grid-tile>
-</mat-grid-list> -->
+ 

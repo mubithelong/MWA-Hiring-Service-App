@@ -7,4 +7,5 @@ export interface User {
   dateOfBirth: string;
   email: string;
   gender: string;
+  address: string;
 }

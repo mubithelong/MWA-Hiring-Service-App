@@ -21,7 +21,12 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { SendTokenInterceptor } from './send-token.interceptor';
 import { ScanTokenGuard } from './scan-token.guard';
+
+import { PaymentComponent } from './payment/payment.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
+
 import { CreateWorkerProfileComponent } from './create-worker-profile/create-worker-profile.component';
+
 
 @NgModule({
   declarations: [
@@ -37,6 +42,10 @@ import { CreateWorkerProfileComponent } from './create-worker-profile/create-wor
     HomepageComponent,
     EditWorkProfileComponent,
     LoginComponent,
+
+    PaymentComponent,
+    ConfirmationComponent,
+
     CreateWorkerProfileComponent,
     FooterComponent,
   ],
@@ -50,12 +59,36 @@ import { CreateWorkerProfileComponent } from './create-worker-profile/create-wor
       { path: 'workers/signup', component: CreateWorkerProfileComponent },
       { path: 'editprofile', component: EditWorkProfileComponent },
 
-      { path: 'home', component: HomepageComponent },
+
+      {
+        path: 'home',
+        component: HomepageComponent,
+        canActivate: [ScanTokenGuard],
+      },
+      {
+        path: 'payment',
+        component: PaymentComponent,
+        canActivate: [ScanTokenGuard],
+      },
+
+      {
+        path: 'confirmation',
+        component: ConfirmationComponent,
+        canActivate: [ScanTokenGuard],
+      },
 
       // { path: '', pathMatch: 'full', redirectTo: 'home' },
       { path: 'employee', component: WorkerDashComponent },
-      // { path: 'home', component: HomeComponent, canActivate: [ScanTokenGuard] },
-      { path: 'signup', component: SignupComponent },
+      { path: 'user', component: HomeComponent, canActivate: [ScanTokenGuard] },
+      {
+        path: 'signup',
+        component: SignupComponent,
+      },
+
+     
+
+     
+
       {
         path: 'login',
         component: LoginComponent,

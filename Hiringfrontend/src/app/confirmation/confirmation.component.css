@@ -1,0 +1,18 @@
+.cardform {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  margin: auto;
+  margin-top: 100px;
+}
+
+h4 {
+  text-align: center;
+}
+.cardheader {
+  margin-left: 100px;
+}
+
+.cardfooter {
+  margin-left: 100px;
+}
