@@ -4,6 +4,7 @@ const Employee = require("../models/employeeModel");
 async function addWorkProfile(req, res, next) {
   try {
     console.log("creating worker  profile");
+    console.log(req.body.hourlyRate);
     console.log(req.body);
     // const results = await Employee.insert(req.body);
     let em = new Employee(req.body);

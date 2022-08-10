@@ -7,7 +7,7 @@ const router = express.Router();
 
 // get job record
 
-//router.get("/job-record", getJobHistory);
+router.get("/job-record", getJobHistory);
 
 //router.post("/pay", createJobRecord);
 

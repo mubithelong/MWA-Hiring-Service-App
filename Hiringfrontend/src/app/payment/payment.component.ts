@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MessageService } from '../service/message.service';
@@ -12,7 +12,7 @@ import { Jobpost } from '../Interface/EmployeeModel';
   templateUrl: './payment.component.html',
   styleUrls: ['./payment.component.css'],
 })
-export class PaymentComponent implements OnInit {
+export class PaymentComponent implements OnInit, OnDestroy {
   payForm: FormGroup;
   hide = true;
   jobdata: any;
@@ -38,18 +38,14 @@ export class PaymentComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.messageService.successMsg$.subscribe(
-      (message) => (this.jobdata = message)
-    );
-
-    const events = this.messageService.getJobpostData();
+    // this.messageService.successMsg$.subscribe(
+    //   (message) => (this.jobdata = message)
+    // );
+    //const events = this.messageService.getJobpostData();
     // console.log('Entering payment component');
     // events.subscribe((event) => console.log(event));
     // console.log('Printing Job data done');
-  }
 
-  pay(): void {
-    const paymentdata = this.messageService.getJobpaymentData();
     const events = this.messageService.getJobpostData();
     console.log('Entering pay method component');
     // events.subscribe((event) => console.log(event));
@@ -58,10 +54,26 @@ export class PaymentComponent implements OnInit {
       .pipe() //this will limit the observable to only one value
       .subscribe((jobPost: Jobpost) => {
         this.jobPostData = jobPost;
-      });
+      })
+      .unsubscribe();
+  }
+
+  pay(): void {
+    const paymentdata = this.messageService.getJobpaymentData();
+    const events = this.messageService.getJobpostData();
+    console.log('Entering pay method component');
+    // events.subscribe((event) => console.log(event));
+
+    // events
+    //   .pipe() //this will limit the observable to only one value
+    //   .subscribe((jobPost: Jobpost) => {
+    //     this.jobPostData = jobPost;
+    //   });
     console.log(this.jobPostData);
 
     console.log('Printing Job data done');
+    console.log('THis is data is jobpostdata');
+    console.log(this.jobPostData);
     const jobRecord = {
       //jobTitile: this.jobPostData?.jobname,
       workerEmail: this.jobPostData?.employeeProfile.email,
@@ -73,17 +85,19 @@ export class PaymentComponent implements OnInit {
       cardnumber: this.payForm.value.cardnumber,
       clientInfo: {
         firstName: this.userservice.getUserState()?.fname,
+        lastName: this.userservice.getUserState()?.lname,
+
         email: this.userservice.getUserState()?.email,
         // address: {
-        //   street: data.street,
-        //   zip: data.zip,
-        //   city: data.city,
+        //   city: this.userservice.getUserState()?.address,
+        //   // zip: this.jobPostData?.clientInfo.address.zip,
+        //   // city: this.jobPostData?.clientInfo.address.city,
         // },
       },
     };
     console.log('Constructed Job Record');
     console.log(jobRecord);
-
+    this.messageService.jobState$.unsubscribe();
     this.userservice.payMoney(jobRecord).subscribe((data: any) => {
       console.log(data);
       // if (data.success === true) {
@@ -97,5 +111,10 @@ export class PaymentComponent implements OnInit {
     const Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
 
     this.messageService.paymentState$.next(Difference_In_Days);
+  }
+
+  ngOnDestroy(): void {
+    this.messageService.jobState$.unsubscribe();
+    // this.messageService.jobState$.complete();
   }
 }

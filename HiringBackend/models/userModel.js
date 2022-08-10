@@ -11,6 +11,7 @@ const Schema = new mongoose.Schema({
   role: { type: String },
   dateOfBirth: { type: String },
   gender: { type: String },
+
   address: { type: String },
 });
 

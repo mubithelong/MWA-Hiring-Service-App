@@ -10,7 +10,10 @@ module.exports.signupController = async (req, res, next) => {
       role: req.body.role,
       dateOfBirth: req.body.dateOfBirth,
       gender: req.body.gender,
+      address: req.body.address,
     });
+    console.log("req.body.address------------");
+    console.log(req.body.address);
 
     // bcrypt.hash(req.body.password, saltRounds, function (err, hash) {
     //   console.log(hash);

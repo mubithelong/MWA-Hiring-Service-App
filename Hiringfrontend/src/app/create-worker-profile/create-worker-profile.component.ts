@@ -59,9 +59,9 @@ export class CreateWorkerProfileComponent implements OnInit {
             zip: data.zip,
             city: data.city,
           },
-          hourlyRate: hourlyRate,
-          experience: experience,
         },
+        hourlyRate: hourlyRate,
+        experience: experience,
       };
 
       console.log('registering worker');

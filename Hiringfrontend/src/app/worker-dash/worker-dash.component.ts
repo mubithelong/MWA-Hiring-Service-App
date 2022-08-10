@@ -42,7 +42,7 @@ export class WorkerDashComponent implements OnInit {
       response.forEach((d) => {
         let jh = {
           name: d.clientInfo.firstName,
-          address: d.clientInfo.address.city,
+          address: d.clientInfo.address,
           days: new Date(d.endDate).getDate() - new Date(d.startDate).getDate(),
           // days: d.startDate,
 
@@ -51,7 +51,8 @@ export class WorkerDashComponent implements OnInit {
           //   d.hourlyRate.valueOf(),
           amount:
             (new Date(d.endDate).getDate() - new Date(d.startDate).getDate()) *
-            d.hourlyRate.valueOf(),
+            d.hourlyRate.valueOf() *
+            8,
         };
         this.jobHistory.push(jh);
       });

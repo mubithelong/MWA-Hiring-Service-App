@@ -20,7 +20,9 @@ async function getJobHistory(req, res, next) {
 // create a job record
 async function createJobRecord(req, res, next) {
   try {
+    console.log("-----------------");
     console.log(req.body);
+
     let jobRecord = new JobRecord(req.body);
     const results = await jobRecord.save();
 
@@ -33,6 +35,7 @@ async function createJobRecord(req, res, next) {
     //let result = await jobRecord.save();
     //res.json(result);
   } catch (error) {
+    console.log(error);
     next(error);
   }
 }

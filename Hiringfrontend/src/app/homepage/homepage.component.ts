@@ -41,7 +41,7 @@ export class HomepageComponent implements OnInit {
     console.log('printing worker data');
     console.log(worker);
     console.log('printing worker data done');
-    this.messageService.sendJobpost(worker);
+   // this.messageService.sendJobpost(worker);
     this.router.navigate(['payment']);
   }
 

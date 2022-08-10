@@ -1,8 +1,7 @@
 export interface Jobpost {
-  _id: string;
   exprience: string;
   jobname: string;
-  workerEmail: string;
+  workerEmail: { type: String; unique: true };
   startdate: Date;
   enddate: Date;
   hourlyRate: Number;
