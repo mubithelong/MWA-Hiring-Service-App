@@ -56,6 +56,7 @@ export class WorkerDashComponent implements OnInit {
         };
         this.jobHistory.push(jh);
       });
+
       this.dataSource = new MatTableDataSource<any>(this.jobHistory);
     });
   }
